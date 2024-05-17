@@ -19,6 +19,10 @@
 <color rgba = "0 0 0 1" />
 </material>
 
+<material name = "red">
+<color rgba = "1 0 0 1" />
+</material>
+
 <!-- BASE LINK -->
 <link name = "base_link">
 
@@ -82,7 +86,7 @@
     </collision>
 
     <!-- moment of inertia -->
-    <xacro:inertial_cylinder mass = "0.1" length = "0.2" radius = "0.04" >
+    <xacro:inertial_cylinder mass = "0.2" length = "0.02" radius = "0.04" >
       <origin xyz = "0 0 0" rpy = "0 0 0" />
     </xacro:inertial_cylinder>
 </link>
@@ -117,7 +121,7 @@
     </collision>
 
     <!-- moment of inertia-->
-    <xacro:inertial_cylinder mass = "0.1" length = "0.2" radius = "0.04" >
+    <xacro:inertial_cylinder mass = "0.2" length = "0.02" radius = "0.04" >
     <origin xyz = "0 0 0" rpy = "0 0 0" />
     </xacro:inertial_cylinder>
 </link>
@@ -132,13 +136,13 @@
 
     <parent link = "chassis" />
     <child link = "caster_wheel" />
-    <origin xyz = "0.27 0 -0.015" rpy = "-${pi/2} 0 0"/>
+    <origin xyz = "0.27 0 -0.015" rpy = "0 0 0"/>
 </joint>
 
 <link name = "caster_wheel" >
      <visual>
        <geometry>
-         <cylinder radius = "0.04" length = "0.02" />
+         <sphere radius = "0.04" />
        </geometry>
 
        <material name = "black" />
@@ -146,19 +150,20 @@
 
      <collision>
        <geometry>
-         <cylinder radius = "0.04" length = "0.02" />
+         <sphere radius = "0.04" />
        </geometry>
      </collision>
 
      <!-- moment of inertia -->
-     <xacro:inertial_cylinder mass = "0.1" length = "0.2" radius = "0.04" >
+     <xacro:inertial_sphere mass = "0.2" radius = "0.04" >
      <origin xyz = "0 0 0" rpy = "0 0 0" />
-     </xacro:inertial_cylinder>
+     </xacro:inertial_sphere>
 </link>
 
 <gazebo reference = "caster_wheel">
      <material>Gazebo/Black</material>
      <mu1 value = "0.001" />
+     <mu2 value = "0.001" />
 </gazebo>
 
 </robot>
