@@ -7,6 +7,7 @@ from launch.substitutions import Command
 from launch.actions import RegisterEventHandler
 from launch.event_handlers import OnProcessStart
 from launch_ros.actions import Node
+from launch.actions import ExecuteProcess
 
 
 
@@ -80,6 +81,11 @@ def generate_launch_description():
             on_start = [joint_broad_spawner],
         )
     )
+
+    # rqt_image_view = ExecuteProcess(
+    #         cmd=['ros2','run','rqt_image_view','rqt_image_view'],
+    #         output = "screen", 
+    #     )
     
 
     # Launch them all!
@@ -90,5 +96,6 @@ def generate_launch_description():
         delayed_joint_broad_spawner,
         #joystick
         #camera,
+        #rqt_image_view,
         #lidar
     ])
