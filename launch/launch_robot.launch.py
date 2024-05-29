@@ -24,11 +24,11 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'false'}.items() # set to 'true' for Gazebo sim
     )
 
-    joystick = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory(package_name),'launch','joystick.launch.py'
-                )]), launch_arguments={'use_sim_time': 'false'}.items()
-    )
+    # joystick = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory(package_name),'launch','joystick.launch.py'
+    #             )]), launch_arguments={'use_sim_time': 'false'}.items()
+    # )
 
     # camera = IncludeLaunchDescription(
     #             PythonLaunchDescriptionSource([os.path.join(
@@ -88,7 +88,7 @@ def generate_launch_description():
         delayed_controller_manager,
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
-        joystick
+        #joystick
         #camera,
         #lidar
     ])
