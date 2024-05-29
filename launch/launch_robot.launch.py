@@ -23,6 +23,24 @@ def generate_launch_description():
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
                 )]), launch_arguments={'use_sim_time': 'false'}.items() # set to 'true' for Gazebo sim
     )
+
+    joystick = IncludeLaunchDescription(
+                PythonLaunchDescriptionSource([os.path.join(
+                    get_package_share_directory(package_name),'launch','joystick.launch.py'
+                )]), launch_arguments={'use_sim_time': 'false'}.items()
+    )
+
+    # camera = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory(package_name),'launch','camera.launch.py'
+    #             )])
+    # )
+
+    # lidar = IncludeLaunchDescription(
+    #             PythonLaunchDescriptionSource([os.path.join(
+    #                 get_package_share_directory('ydlidar_ros2_driver'),'launch','ydlidar_launch.py'
+    #             )])
+    # )
     
     robot_description = Command(['ros2 param get --hide-type /robot_state_publisher robot_description'])
     
@@ -62,11 +80,15 @@ def generate_launch_description():
             on_start = [joint_broad_spawner],
         )
     )
+    
 
     # Launch them all!
     return LaunchDescription([
         rsp,
         delayed_controller_manager,
         delayed_diff_drive_spawner,
-        delayed_joint_broad_spawner
+        delayed_joint_broad_spawner,
+        joystick
+        #camera,
+        #lidar
     ])
