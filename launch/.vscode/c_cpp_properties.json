@@ -1,0 +1,24 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "${default}",
+        "limitSymbolsToIncludedHeaders": false
+      },
+      "includePath": [
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/serial_motor_demo_msgs/include/**",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/gazebo_ros2_control/include/**",
+        "/opt/ros/humble/include/**",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/src/gazebo_ros2_control/gazebo_ros2_control/include/**",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/src/my_package/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS",
+      "intelliSenseMode": "gcc-x64",
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "gnu11",
+      "cppStandard": "c++14"
+    }
+  ],
+  "version": 4
+}

@@ -1,0 +1,20 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/build/serial_motor_demo",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/serial_motor_demo/lib/python3.10/site-packages",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/build/joy_tester",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/joy_tester/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/build/serial_motor_demo",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/serial_motor_demo/lib/python3.10/site-packages",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/serial_motor_demo_msgs/local/lib/python3.10/dist-packages",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/build/joy_tester",
+        "/home/saitarun/Desktop/vector_bot_project/dev_ws/install/joy_tester/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}

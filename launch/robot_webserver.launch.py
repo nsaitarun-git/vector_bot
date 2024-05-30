@@ -25,21 +25,9 @@ def generate_launch_description():
                 )]), launch_arguments={'use_sim_time': 'false'}.items() # set to 'true' for Gazebo sim
     )
 
-    # joystick = IncludeLaunchDescription(
-    #             PythonLaunchDescriptionSource([os.path.join(
-    #                 get_package_share_directory(package_name),'launch','joystick.launch.py'
-    #             )]), launch_arguments={'use_sim_time': 'false'}.items()
-    # )
-
     camera = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','camera.launch.py'
-                )])
-    )
-
-    lidar = IncludeLaunchDescription(
-                PythonLaunchDescriptionSource([os.path.join(
-                    get_package_share_directory('ydlidar_ros2_driver'),'launch','ydlidar_launch.py'
                 )])
     )
     
@@ -81,7 +69,20 @@ def generate_launch_description():
             on_start = [joint_broad_spawner],
         )
     )
-    
+
+
+    web_video_server = Node(
+        package= "web_video_server",
+        executable= "web_video_server",
+        arguments= ["joint_broad"], 
+    )
+
+    delayed_web_video_server = RegisterEventHandler(
+        event_handler = OnProcessStart(
+            target_action = controller_manager,
+            on_start = [web_video_server],
+        )
+    )
 
     # Launch them all!
     return LaunchDescription([
@@ -90,5 +91,6 @@ def generate_launch_description():
         delayed_diff_drive_spawner,
         delayed_joint_broad_spawner,
         camera,
-        lidar
+        delayed_web_video_server
+
     ])
