@@ -37,6 +37,6 @@ def generate_launch_description():
     # Launch them all!
     return LaunchDescription([
         joystick,
-        rqt_image_view,
+        #rqt_image_view,
         rviz,
     ])
