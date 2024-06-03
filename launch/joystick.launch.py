@@ -16,6 +16,14 @@ def generate_launch_description():
             executable='joy_node',
             parameters=[joy_params],
          )
+    
+    teleop_node = Node(
+            package='teleop_twist_joy',
+            executable='teleop_node',
+            name='teleop_node',
+            parameters=[joy_params],
+            remappings=[('/cmd_vel','/diff_cont/cmd_vel_unstamped')]
+         )
 
     twist_stamper = Node(
             package='twist_stamper',
@@ -27,5 +35,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         joy_node,    
+        teleop_node,
         twist_stamper
     ])
